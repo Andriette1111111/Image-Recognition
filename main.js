@@ -6,6 +6,8 @@ png_quality: 90
 });
 camera= document.getElementById("camera");
 
+
+
 Webcam.attach('#camera');
 
 function take_snapshot(){
@@ -20,12 +22,18 @@ function modelLoaded(){
     console.log("Model Loaded");
 }
 
+var synth= window.speechSynthesis;
+var speak_data="This is the image of "+results[0].label;
+var utter= new SpeechSynthesisUtterance(speak_data);
+synth.speak(utter);
+
+
 function check(){
     img= document.getElementById("captured_image");
     classifier.clasify(img, gotResult());
 }
 
-function gotResult(){
+function gotResult(error,results){
     if(error){
         console.error(error);
     }
