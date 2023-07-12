@@ -30,7 +30,7 @@ synth.speak(utter);
 
 function check(){
     img= document.getElementById("captured_image");
-    classifier.clasify(img, gotResult());
+    classifier.classify(img, gotResult());
 }
 
 function gotResult(error,results){
